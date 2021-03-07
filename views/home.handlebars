@@ -1,2 +1,53 @@
-<h1>This is my actual handlebars page.</h1>
-<p>{{stuff}}</p>
+
+<div class="bg-light p-5 rounded-lg m-3">
+    <h1 class="display-4">{{stock.companyName}}</h1>
+
+    <br>
+    <strong>Latest Price: </strong> ${{ stock.latestPrice }}<br>
+    <strong>Previous Close:</strong> ${{ stock.previousClose }}<br>
+    <strong>Change Percent:</strong> {{ stock.changePercent }}%<br>
+    <strong>Market Cap:</strong> ${{ stock.marketCap }}<br>
+    <strong>ytdChange:</strong> {{ stock.ytdChange }}%<br>
+    <strong>52 Week High:</strong> {{ stock.week52High }}<br>
+    <strong>52 Week Low:</strong> {{ stock.week52Low }}<br>
+</div>
+<br>
+<br>
+
+<p>{{stock}}</p>
+<br>
+<h2>List Sample:</h2>
+<br>
+<ul>
+{{#each stock}}
+<li>
+    {{@key}} : {{this}}
+</li>
+{{/each}}
+</ul>
+<br>
+<br>
+<h2>Table Sample:</h2>
+
+<table>
+    <thead>
+        <th style="border: 1px solid #999; padding: 0.5rem;">
+            Key
+        </th>
+        <th style="border: 1px solid #999; padding: 0.5rem;">
+            value
+        </th>
+    </thead>
+    <tbody>
+        {{#each stock}}
+        <tr>
+            <td style="border: 1px solid #999; padding: 0.5rem;">
+                {{@key}}
+            </td>
+            <td style="border: 1px solid #999; padding: 0.5rem;">
+                {{this}}
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
